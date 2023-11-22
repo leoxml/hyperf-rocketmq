@@ -5,11 +5,8 @@ declare(strict_types=1);
 namespace Uncleqiu\RocketMQ;
 
 use Hyperf\Process\ProcessManager;
-use Uncleqiu\RocketMQ\Event\AfterConsume;
-use Uncleqiu\RocketMQ\Event\BeforeConsume;
-use Uncleqiu\RocketMQ\Event\FailToConsume;
-use Uncleqiu\RocketMQ\Library\Exception\AckMessageException;
-use Uncleqiu\RocketMQ\Library\Exception\MessageNotExistException;
+use Uncleqiu\RocketMQ\Event\{AfterConsume, FailToConsume, BeforeConsume};
+use Uncleqiu\RocketMQ\Library\Exception\{AckMessageException, MessageNotExistException, MessageResolveException};
 use Uncleqiu\RocketMQ\Library\Model\Message as RocketMQMessage;
 use Uncleqiu\RocketMQ\Library\MQClient;
 use Uncleqiu\RocketMQ\Message\ConsumerMessageInterface;
@@ -44,6 +41,23 @@ class Consumer extends Builder
                     $consumerMessage->getNumOfMessage(), // 一次最多消费3条(最多可设置为16条)
                     $consumerMessage->getWaitSeconds() // 长轮询时间（最多可设置为30秒）
                 );
+            } catch (MessageResolveException $e) {
+                // 当出现消息Body存在不合法字符，无法解析的时候，会抛出此异常。
+                // 可以正常解析的消息列表。
+                $messages = $e->getPartialResult()->getMessages();
+                // 无法正常解析的消息列表。
+                $failMessages = $e->getPartialResult()->getFailResolveMessages();
+
+                if ($failMessages) {
+                    $receiptHandles = [];
+                    foreach ($failMessages as $failMessage) {
+                        // 处理存在不合法字符，无法解析的消息。
+                        $receiptHandles[] = $failMessage->getReceiptHandle();
+                        //printf("Fail To Resolve Message. MsgID %s\n", $failMessage->getMessageId());
+                        $this->logger->error('ack_error:fail_message', ['MsgID' => $failMessage->getMessageId()]);
+                    }
+                    $consumer->ackMessage($receiptHandles);
+                }
             } catch (MessageNotExistException $e) {
                 continue;
             } catch (Throwable $exception) {
