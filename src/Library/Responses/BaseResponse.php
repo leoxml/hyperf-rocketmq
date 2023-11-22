@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Uncleqiu\RocketMQ\Library\Responses;
 
 use Exception;
-use Uncleqiu\RocketMQ\Library\Exception\MQException;
+use DOMDocument;
 use XMLReader;
+use Uncleqiu\RocketMQ\Library\Exception\MQException;
 
 abstract class BaseResponse
 {
@@ -43,21 +44,29 @@ abstract class BaseResponse
 
     protected function loadXmlContent($content): XMLReader
     {
-        $content = (string) $content;
+        $content = (string)$content;
         $xmlReader = new XMLReader();
         $isXml = $xmlReader->XML($content);
         if ($isXml === false) {
             throw new MQException($this->statusCode, $content);
         }
         try {
-            $i = 0;
             while ($xmlReader->read()) {
-                ++$i;
             }
         } catch (Exception $e) {
             throw new MQException($this->statusCode, $content);
         }
         $xmlReader->XML($content);
         return $xmlReader;
+    }
+
+    protected function loadAndValidateXmlContent($content, &$xmlReader): bool
+    {
+        $doc = new DOMDocument();
+        if (!$doc->loadXML($content)) {
+            return false;
+        }
+        $xmlReader = $this->loadXmlContent($content);
+        return true;
     }
 }

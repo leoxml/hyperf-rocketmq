@@ -8,6 +8,7 @@ use Exception;
 use Uncleqiu\RocketMQ\Library\Common\XMLParser;
 use Uncleqiu\RocketMQ\Library\Constants;
 use Uncleqiu\RocketMQ\Library\Exception\MessageNotExistException;
+use Uncleqiu\RocketMQ\Library\Exception\MessageResolveException;
 use Uncleqiu\RocketMQ\Library\Exception\MQException;
 use Uncleqiu\RocketMQ\Library\Exception\TopicNotExistException;
 use Uncleqiu\RocketMQ\Library\Model\Message;
@@ -37,16 +38,19 @@ class ConsumeMessageResponse extends BaseResponse
             $this->parseErrorResponse($statusCode, $content);
         }
 
-        $xmlReader = $this->loadXmlContent($content);
-
         try {
-            while ($xmlReader->read()) {
-                if ($xmlReader->nodeType == XMLReader::ELEMENT
-                    && $xmlReader->name == 'Message') {
-                    $this->messages[] = Message::fromXML($xmlReader);
+            if ($this->loadAndValidateXmlContent($content, $xmlReader)) {
+                while ($xmlReader->read()) {
+                    if ($xmlReader->nodeType == XMLReader::ELEMENT
+                        && $xmlReader->name == 'Message') {
+                        $this->messages[] = Message::fromXML($xmlReader);
+                    }
                 }
+                return $this->messages;
             }
-            return $this->messages;
+            throw new MessageResolveException($statusCode, 'Some messages cannot be resolved', MessagePartialResolver::resolve($content));
+        } catch (MessageResolveException $e) {
+            throw $e;
         } catch (Exception $e) {
             throw new MQException($statusCode, $e->getMessage(), $e);
         } catch (Throwable $t) {
