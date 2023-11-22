@@ -1,0 +1,32 @@
+{
+    "name": "uncleqiu/hyperf-rocketmq",
+    "description": "hyperf rocketmq sdk",
+    "keywords": [
+        "php",
+        "hyperf",
+        "rocketmq"
+    ],
+    "homepage": "https://github.com/uncleqiu/hyperf-rocketmq.git",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Uncleqiu\\HyperfRocketMQ\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "uncleqiu"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "hyperf": {
+            "config": "Uncleqiu\\HyperfRocketMQ\\ConfigProvider"
+        }
+    }
+}
