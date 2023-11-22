@@ -10,7 +10,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Uncleqiu\\HyperfRocketMQ\\": "src/"
+            "Uncleqiu\\RocketMQ\\": "src/"
         }
     },
     "authors": [
@@ -26,7 +26,7 @@
     },
     "extra": {
         "hyperf": {
-            "config": "Uncleqiu\\HyperfRocketMQ\\ConfigProvider"
+            "config": "Uncleqiu\\RocketMQ\\ConfigProvider"
         }
     }
 }
