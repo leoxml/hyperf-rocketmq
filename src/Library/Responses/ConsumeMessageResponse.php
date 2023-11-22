@@ -39,6 +39,7 @@ class ConsumeMessageResponse extends BaseResponse
         }
 
         try {
+            $content = (string)$content;
             if ($this->loadAndValidateXmlContent($content, $xmlReader)) {
                 while ($xmlReader->read()) {
                     if ($xmlReader->nodeType == XMLReader::ELEMENT
