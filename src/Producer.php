@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ;
+namespace Leoxml\RocketMQ;
 
 use Hyperf\Di\Annotation\AnnotationCollector;
 use Hyperf\Guzzle\PoolHandler;
-use Uncleqiu\RocketMQ\Event\AfterProduce;
-use Uncleqiu\RocketMQ\Library\Model\TopicMessage;
-use Uncleqiu\RocketMQ\Library\MQClient;
-use Uncleqiu\RocketMQ\Library\MQProducer;
-use Uncleqiu\RocketMQ\Message\ProducerMessageInterface;
+use Leoxml\RocketMQ\Event\AfterProduce;
+use Leoxml\RocketMQ\Library\Model\TopicMessage;
+use Leoxml\RocketMQ\Library\MQClient;
+use Leoxml\RocketMQ\Library\MQProducer;
+use Leoxml\RocketMQ\Message\ProducerMessageInterface;
 
 class Producer extends Builder
 {
@@ -51,7 +51,7 @@ class Producer extends Builder
      */
     protected function getMQConfig(Config $config): Library\Config
     {
-        $mqConfig = new \Uncleqiu\RocketMQ\Library\Config();
+        $mqConfig = new \Leoxml\RocketMQ\Library\Config();
         $mqConfig->setConnectTimeout($config->getConnectTimeout());
         $mqConfig->setRequestTimeout($config->getWaitTimeout());
 
@@ -74,6 +74,7 @@ class Producer extends Builder
 
         $publishMessage = new TopicMessage($message->payload());
         $message->getMessageTag() && $publishMessage->setMessageTag($message->getMessageTag());
+        $message->getMessageKey() && $publishMessage->setMessageKey($message->getMessageKey());
         if ($timeInMillis = $message->getDeliverTime()) {
             $publishMessage->setStartDeliverTime($timeInMillis);
         }
@@ -98,7 +99,7 @@ class Producer extends Builder
     private function injectMessageProperty(ProducerMessageInterface $producerMessage)
     {
         if (class_exists(AnnotationCollector::class)) {
-            /** @var \Uncleqiu\RocketMQ\Annotation\Producer $annotation */
+            /** @var \Leoxml\RocketMQ\Annotation\Producer $annotation */
             $annotation = AnnotationCollector::getClassAnnotation(get_class($producerMessage), Annotation\Producer::class);
             if ($annotation) {
                 $producerMessage->setIsAddEnvExt($annotation->addEnvExt); // 这里需要写在最前面

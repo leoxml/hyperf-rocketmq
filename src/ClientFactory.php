@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ;
+namespace Leoxml\RocketMQ;
 
 
 use Hyperf\Guzzle\PoolHandler;
 use Hyperf\Utils\Coroutine\Locker;
-use Uncleqiu\RocketMQ\Library\MQClient;
+use Leoxml\RocketMQ\Library\MQClient;
 
 class ClientFactory
 {
@@ -48,7 +48,7 @@ class ClientFactory
      */
     protected function getMQConfig(Config $config): Library\Config
     {
-        $mqConfig = new \Uncleqiu\RocketMQ\Library\Config();
+        $mqConfig = new \Leoxml\RocketMQ\Library\Config();
         $mqConfig->setConnectTimeout($config->getConnectTimeout());
         $mqConfig->setRequestTimeout($config->getWaitTimeout());
 

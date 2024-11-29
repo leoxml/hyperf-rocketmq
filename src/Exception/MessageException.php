@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Exception;
+namespace Leoxml\RocketMQ\Exception;
 
 use Exception;
 

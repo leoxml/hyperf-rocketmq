@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ;
+namespace Leoxml\RocketMQ;
 
 use Hyperf\Logger\LoggerFactory;
 use Hyperf\Utils\Coroutine;

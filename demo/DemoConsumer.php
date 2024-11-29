@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Uncleqiu\RocketMQ\Annotation\Consumer;
-use Uncleqiu\RocketMQ\Library\Model\Message as RocketMQMessage;
-use Uncleqiu\RocketMQ\Message\ConsumerMessage;
-use Uncleqiu\RocketMQ\Result;
+use Leoxml\RocketMQ\Annotation\Consumer;
+use Leoxml\RocketMQ\Library\Model\Message as RocketMQMessage;
+use Leoxml\RocketMQ\Message\ConsumerMessage;
+use Leoxml\RocketMQ\Result;
 
 #[Consumer(topic: 'Topic_03_test', groupId: 'test_test', messageTag: 'hyperf_test', name: 'DemoConsumer', processNums: 2)]
 class DemoConsumer extends ConsumerMessage

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Requests;
+namespace Leoxml\RocketMQ\Library\Requests;
 
 class ConsumeMessageRequest extends BaseRequest
 {

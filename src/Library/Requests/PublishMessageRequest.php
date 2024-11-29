@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Requests;
+namespace Leoxml\RocketMQ\Library\Requests;
 
-use Uncleqiu\RocketMQ\Library\Constants;
-use Uncleqiu\RocketMQ\Library\Traits\MessagePropertiesForPublish;
+use Leoxml\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Traits\MessagePropertiesForPublish;
 use XMLWriter;
 
 class PublishMessageRequest extends BaseRequest

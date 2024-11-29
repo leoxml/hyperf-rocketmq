@@ -10,18 +10,6 @@
 composer require uncleqiu/hyperf-rocketmq
 ```
 
-**producer、consumer 创建命令**
-
-> 需要先安装依赖
-```shell
-composer require uncleqiu/hyperf-devtool --dev
-```
-```shell
-php bin/hyperf.php ext-gen:rocketmq-consumer 领域名 消费者名称   
-php bin/hyperf.php ext-gen:rocketmq-producer 领域名 生产者名称   
-```
-
-
 ### 2、配置
 
 #### 发布配置
@@ -69,11 +57,11 @@ php bin/hyperf.php migrate --path=migrations/rocketmq
 
 表说明：
 
-mq_status_log：消息生产状态表
+rocketmq_status_log：消息生产状态表
 
-mq_produce_status_log：生成消息状态
+rocketmq_produce_status_log：生成消息状态
 
-mq_consume_log：消费日志
+rocketmq_consume_log：消费日志
 
 ### 4、投递消息
 
@@ -99,8 +87,8 @@ declare(strict_types=1);
 
 namespace App\Test\Queue\Producer;
 
-use Uncleqiu\HyperfRocketMQ\Annotation\Producer;
-use Uncleqiu\HyperfRocketMQ\Message\ProducerMessage;
+use Uncleqiu\RocketMQ\Annotation\Producer;
+use Uncleqiu\RocketMQ\Message\ProducerMessage;
 
 #[Producer(topic:"Topic_03_test", messageTag:"tMsgKey")]
 class DemoProducer extends ProducerMessage
@@ -130,7 +118,7 @@ use App\Producer\DemoProducer;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\RequestMapping;
-use Uncleqiu\HyperfRocketMQ\Producer;
+use Uncleqiu\RocketMQ\Producer;
 
 #[Controller]
 class IndexController extends AbstractController
@@ -203,10 +191,10 @@ Consumer注解属性说明
 > 使用 `@Consumer` 注解时需 `use Uncleqiu\HyperfRocketMQ\Annotation\Consumer;` 命名空间；
 
 ```php
-use Uncleqiu\HyperfRocketMQ\Annotation\Consumer;
-use Uncleqiu\HyperfRocketMQ\Library\Model\Message as RocketMQMessage;
-use Uncleqiu\HyperfRocketMQ\Message\ConsumerMessage;
-use Uncleqiu\HyperfRocketMQ\Result;
+use Uncleqiu\RocketMQ\Annotation\Consumer;
+use Uncleqiu\RocketMQ\Library\Model\Message as RocketMQMessage;
+use Uncleqiu\RocketMQ\Message\ConsumerMessage;
+use Uncleqiu\RocketMQ\Result;
 
 #[Consumer(topic: "Topic_03_test", groupId: "test_test", messageTag: "tMsgKey||tMsgKey_bar")]
 class DemoCounser extends ConsumerMessage

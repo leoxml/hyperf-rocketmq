@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Exception;
+namespace Leoxml\RocketMQ\Library\Exception;
 
-use Uncleqiu\RocketMQ\Library\Constants;
-use Uncleqiu\RocketMQ\Library\Model\AckMessageErrorItem;
+use Leoxml\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Model\AckMessageErrorItem;
 
 /**
  * Ack message could fail for some receipt handles,

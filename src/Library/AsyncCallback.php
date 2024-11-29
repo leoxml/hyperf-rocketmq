@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library;
+namespace Leoxml\RocketMQ\Library;
 
-use Uncleqiu\RocketMQ\Library\Exception\MQException;
+use Leoxml\RocketMQ\Library\Exception\MQException;
 
 class AsyncCallback
 {

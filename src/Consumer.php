@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ;
+namespace Leoxml\RocketMQ;
 
 use Hyperf\Process\ProcessManager;
-use Uncleqiu\RocketMQ\Event\{AfterConsume, FailToConsume, BeforeConsume};
-use Uncleqiu\RocketMQ\Library\Exception\{AckMessageException, MessageNotExistException, MessageResolveException};
-use Uncleqiu\RocketMQ\Library\Model\Message as RocketMQMessage;
-use Uncleqiu\RocketMQ\Library\MQClient;
-use Uncleqiu\RocketMQ\Message\ConsumerMessageInterface;
+use Leoxml\RocketMQ\Event\{AfterConsume, FailToConsume, BeforeConsume};
+use Leoxml\RocketMQ\Library\Exception\{AckMessageException, MessageNotExistException, MessageResolveException};
+use Leoxml\RocketMQ\Library\Model\Message as RocketMQMessage;
+use Leoxml\RocketMQ\Library\MQClient;
+use Leoxml\RocketMQ\Message\ConsumerMessageInterface;
 use Throwable;
 
 class Consumer extends Builder
@@ -133,7 +133,7 @@ class Consumer extends Builder
     // 思考：消费端有必要用连接池？
     protected function getMQConfig(Config $config): Library\Config
     {
-        $mqConfig = new \Uncleqiu\RocketMQ\Library\Config();
+        $mqConfig = new \Leoxml\RocketMQ\Library\Config();
         $mqConfig->setConnectTimeout($config->getConnectTimeout());
         $mqConfig->setRequestTimeout($config->getWaitTimeout());
 

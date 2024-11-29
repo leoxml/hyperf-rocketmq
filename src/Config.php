@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ;
+namespace Leoxml\RocketMQ;
 
-use Uncleqiu\RocketMQ\Exception\RocketMQException;
+use Leoxml\RocketMQ\Exception\RocketMQException;
 
 class Config
 {

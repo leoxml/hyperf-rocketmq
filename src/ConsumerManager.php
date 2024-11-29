@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ;
+namespace Leoxml\RocketMQ;
 
 use Hyperf\Di\Annotation\AnnotationCollector;
 use Hyperf\Process\AbstractProcess;
 use Hyperf\Process\ProcessManager;
-use Uncleqiu\RocketMQ\Annotation\Consumer as ConsumerAnnotation;
-use Uncleqiu\RocketMQ\Message\ConsumerMessageInterface;
+use Leoxml\RocketMQ\Annotation\Consumer as ConsumerAnnotation;
+use Leoxml\RocketMQ\Message\ConsumerMessageInterface;
 use Psr\Container\ContainerInterface;
 
 class ConsumerManager

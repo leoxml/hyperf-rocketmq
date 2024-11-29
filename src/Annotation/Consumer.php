@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Annotation;
+namespace Leoxml\RocketMQ\Annotation;
 
 use Attribute;
 use Hyperf\Di\Annotation\AbstractAnnotation;
-use Uncleqiu\RocketMQ\Constants\MqConstant;
+use Leoxml\RocketMQ\Constants\MqConstant;
 
 /**
  * @Annotation

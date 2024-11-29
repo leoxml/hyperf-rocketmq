@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Common;
+namespace Leoxml\RocketMQ\Library\Common;
 
 class XMLParser
 {

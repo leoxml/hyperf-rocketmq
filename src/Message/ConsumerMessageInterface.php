@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Message;
+namespace Leoxml\RocketMQ\Message;
 
-use Uncleqiu\RocketMQ\Library\Model\Message as RocketMQMessage;
+use Leoxml\RocketMQ\Library\Model\Message as RocketMQMessage;
 
 interface ConsumerMessageInterface extends MessageInterface
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library;
+namespace Leoxml\RocketMQ\Library;
 
-use Uncleqiu\RocketMQ\Library\Exception\InvalidArgumentException;
-use Uncleqiu\RocketMQ\Library\Http\HttpClient;
+use Leoxml\RocketMQ\Library\Exception\InvalidArgumentException;
+use Leoxml\RocketMQ\Library\Http\HttpClient;
 
 class MQClient
 {

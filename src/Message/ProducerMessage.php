@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Message;
+namespace Leoxml\RocketMQ\Message;
 
 use Hyperf\Database\Model\Model;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Utils\Codec\Json;
-use Uncleqiu\RocketMQ\Constants\MqConstant;
-use Uncleqiu\RocketMQ\Exception\RocketMQException;
-use Uncleqiu\RocketMQ\Model\MqProduceStatusLog;
-use Uncleqiu\RocketMQ\Packer\Packer;
+use Leoxml\RocketMQ\Constants\MqConstant;
+use Leoxml\RocketMQ\Exception\RocketMQException;
+use Leoxml\RocketMQ\Model\MqProduceStatusLog;
+use Leoxml\RocketMQ\Packer\Packer;
 
 class ProducerMessage extends Message implements ProducerMessageInterface
 {

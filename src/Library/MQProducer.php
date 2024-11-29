@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library;
+namespace Leoxml\RocketMQ\Library;
 
-use Uncleqiu\RocketMQ\Library\Exception\InvalidArgumentException;
-use Uncleqiu\RocketMQ\Library\Http\HttpClient;
-use Uncleqiu\RocketMQ\Library\Model\TopicMessage;
-use Uncleqiu\RocketMQ\Library\Requests\PublishMessageRequest;
-use Uncleqiu\RocketMQ\Library\Responses\PublishMessageResponse;
+use Leoxml\RocketMQ\Library\Exception\InvalidArgumentException;
+use Leoxml\RocketMQ\Library\Http\HttpClient;
+use Leoxml\RocketMQ\Library\Model\TopicMessage;
+use Leoxml\RocketMQ\Library\Requests\PublishMessageRequest;
+use Leoxml\RocketMQ\Library\Responses\PublishMessageResponse;
 
 class MQProducer
 {

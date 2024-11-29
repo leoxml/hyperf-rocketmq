@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Listener;
+namespace Leoxml\RocketMQ\Listener;
 
 use Hyperf\Event\Contract\ListenerInterface;
 use Hyperf\Framework\Event\BeforeMainServerStart;
 use Hyperf\Server\Event\MainCoroutineServerStart;
-use Uncleqiu\RocketMQ\ConsumerManager;
+use Leoxml\RocketMQ\ConsumerManager;
 use Psr\Container\ContainerInterface;
 
 class BeforeMainServerStartListener implements ListenerInterface

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Signature;
+namespace Leoxml\RocketMQ\Library\Signature;
 
-use Uncleqiu\RocketMQ\Library\Constants;
-use Uncleqiu\RocketMQ\Library\Requests\BaseRequest;
+use Leoxml\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Requests\BaseRequest;
 
 class Signature
 {

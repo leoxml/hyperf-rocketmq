@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Responses;
+namespace Leoxml\RocketMQ\Library\Responses;
 
 use Exception;
 use DOMDocument;
 use XMLReader;
-use Uncleqiu\RocketMQ\Library\Exception\MQException;
+use Leoxml\RocketMQ\Library\Exception\MQException;
 
 abstract class BaseResponse
 {

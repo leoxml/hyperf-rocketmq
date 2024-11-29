@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Constants;
+namespace Leoxml\RocketMQ\Constants;
 
 class MqConstant
 {

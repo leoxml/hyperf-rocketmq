@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Uncleqiu\RocketMQ\Annotation\Producer;
-use Uncleqiu\RocketMQ\Message\ProducerMessage;
+use Leoxml\RocketMQ\Annotation\Producer;
+use Leoxml\RocketMQ\Message\ProducerMessage;
 
 #[Producer(topic: 'Topic_03_test', messageTag: 'hyperf_test')]
 class DemoProducer extends ProducerMessage

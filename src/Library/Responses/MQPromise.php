@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Responses;
+namespace Leoxml\RocketMQ\Library\Responses;
 
 use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Promise\PromiseInterface;

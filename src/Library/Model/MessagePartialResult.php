@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Model;
+namespace Leoxml\RocketMQ\Library\Model;
 
 class MessagePartialResult
 {

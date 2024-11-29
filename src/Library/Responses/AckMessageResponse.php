@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Responses;
+namespace Leoxml\RocketMQ\Library\Responses;
 
-use Uncleqiu\RocketMQ\Library\Common\XMLParser;
-use Uncleqiu\RocketMQ\Library\Constants;
-use Uncleqiu\RocketMQ\Library\Exception\AckMessageException;
-use Uncleqiu\RocketMQ\Library\Exception\InvalidArgumentException;
-use Uncleqiu\RocketMQ\Library\Exception\MQException;
-use Uncleqiu\RocketMQ\Library\Exception\ReceiptHandleErrorException;
-use Uncleqiu\RocketMQ\Library\Exception\TopicNotExistException;
-use Uncleqiu\RocketMQ\Library\Model\AckMessageErrorItem;
+use Leoxml\RocketMQ\Library\Common\XMLParser;
+use Leoxml\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Exception\AckMessageException;
+use Leoxml\RocketMQ\Library\Exception\InvalidArgumentException;
+use Leoxml\RocketMQ\Library\Exception\MQException;
+use Leoxml\RocketMQ\Library\Exception\ReceiptHandleErrorException;
+use Leoxml\RocketMQ\Library\Exception\TopicNotExistException;
+use Leoxml\RocketMQ\Library\Model\AckMessageErrorItem;
 use Throwable;
 use XMLReader;
 

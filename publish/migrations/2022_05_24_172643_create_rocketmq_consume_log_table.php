@@ -16,7 +16,7 @@ class CreateRocketmqConsumeLogTable extends Migration
         Schema::create('rocketmq_consume_log', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('topic', 100)->comment('topic');
-            $table->string('message_key', 40)->comment('message_key');
+            $table->string('message_key', 40)->nullable()->comment('message_key');
             $table->string('message_tag', 50)->comment('message_tag');
             $table->string('message_id')->comment('message_id');
             $table->text('payload')->comment('payload');

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Exception;
+namespace Leoxml\RocketMQ\Library\Exception;
 
-use Uncleqiu\RocketMQ\Library\Model\MessagePartialResult;
+use Leoxml\RocketMQ\Library\Model\MessagePartialResult;
 
 class MessageResolveException extends MQException
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Model;
+namespace Leoxml\RocketMQ\Library\Model;
 
-use Uncleqiu\RocketMQ\Library\Constants;
-use Uncleqiu\RocketMQ\Library\Traits\MessagePropertiesForPublish;
+use Leoxml\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Traits\MessagePropertiesForPublish;
 
 class TopicMessage
 {

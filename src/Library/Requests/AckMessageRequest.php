@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Requests;
+namespace Leoxml\RocketMQ\Library\Requests;
 
-use Uncleqiu\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Constants;
 
 class AckMessageRequest extends BaseRequest
 {

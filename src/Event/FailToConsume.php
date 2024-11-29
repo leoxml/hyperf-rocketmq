@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Event;
+namespace Leoxml\RocketMQ\Event;
 
-use Uncleqiu\RocketMQ\Library\Model\Message as RocketMQMessage;
+use Leoxml\RocketMQ\Library\Model\Message as RocketMQMessage;
 use Throwable;
 
 class FailToConsume extends ConsumeEvent

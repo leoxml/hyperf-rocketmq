@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Message;
+namespace Leoxml\RocketMQ\Message;
 
 use Hyperf\ExceptionHandler\Formatter\FormatterInterface;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Utils\Codec\Json;
 use Psr\Container\ContainerInterface;
-use Uncleqiu\RocketMQ\Constants\MqConstant;
-use Uncleqiu\RocketMQ\Library\Model\Message as RocketMQMessage;
-use Uncleqiu\RocketMQ\Model\MqConsumeLog;
-use Uncleqiu\RocketMQ\Model\MqErrorLog;
-use Uncleqiu\RocketMQ\Packer\Packer;
-use Uncleqiu\RocketMQ\Result;
+use Leoxml\RocketMQ\Constants\MqConstant;
+use Leoxml\RocketMQ\Library\Model\Message as RocketMQMessage;
+use Leoxml\RocketMQ\Model\MqConsumeLog;
+use Leoxml\RocketMQ\Model\MqErrorLog;
+use Leoxml\RocketMQ\Packer\Packer;
+use Leoxml\RocketMQ\Result;
 
 class ConsumerMessage extends Message implements ConsumerMessageInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Message;
+namespace Leoxml\RocketMQ\Message;
 
 interface ProducerMessageInterface extends MessageInterface
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Responses;
+namespace Leoxml\RocketMQ\Library\Responses;
 
-use Uncleqiu\RocketMQ\Library\Model\FailResolveMessage;
-use Uncleqiu\RocketMQ\Library\Model\Message;
-use Uncleqiu\RocketMQ\Library\Model\MessagePartialResult;
+use Leoxml\RocketMQ\Library\Model\FailResolveMessage;
+use Leoxml\RocketMQ\Library\Model\Message;
+use Leoxml\RocketMQ\Library\Model\MessagePartialResult;
 use XMLReader;
 
 class MessagePartialResolver

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Event;
+namespace Leoxml\RocketMQ\Event;
 
 class BeforeConsume extends ConsumeEvent
 {

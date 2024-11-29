@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Http;
+namespace Leoxml\RocketMQ\Library\Http;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\Request;
 use Hyperf\Guzzle\PoolHandler;
-use Uncleqiu\RocketMQ\Library\AsyncCallback;
-use Uncleqiu\RocketMQ\Library\Config;
-use Uncleqiu\RocketMQ\Library\Constants;
-use Uncleqiu\RocketMQ\Library\Exception\MQException;
-use Uncleqiu\RocketMQ\Library\Requests\BaseRequest;
-use Uncleqiu\RocketMQ\Library\Responses\BaseResponse;
-use Uncleqiu\RocketMQ\Library\Responses\MQPromise;
-use Uncleqiu\RocketMQ\Library\Signature\Signature;
+use Leoxml\RocketMQ\Library\AsyncCallback;
+use Leoxml\RocketMQ\Library\Config;
+use Leoxml\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Exception\MQException;
+use Leoxml\RocketMQ\Library\Requests\BaseRequest;
+use Leoxml\RocketMQ\Library\Responses\BaseResponse;
+use Leoxml\RocketMQ\Library\Responses\MQPromise;
+use Leoxml\RocketMQ\Library\Signature\Signature;
 
 class HttpClient
 {

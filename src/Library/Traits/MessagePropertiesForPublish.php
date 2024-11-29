@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Traits;
+namespace Leoxml\RocketMQ\Library\Traits;
 
-use Uncleqiu\RocketMQ\Library\Constants;
-use Uncleqiu\RocketMQ\Library\Exception\MQException;
+use Leoxml\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Exception\MQException;
 use XMLWriter;
 
 trait MessagePropertiesForPublish

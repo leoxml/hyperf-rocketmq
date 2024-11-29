@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Message;
+namespace Leoxml\RocketMQ\Message;
 
 use Hyperf\Amqp\Exception\MessageException;
 use Hyperf\Logger\LoggerFactory;
 use Hyperf\Utils\ApplicationContext;
-use Uncleqiu\RocketMQ\Constants\MqConstant;
+use Leoxml\RocketMQ\Constants\MqConstant;
 
 abstract class Message implements MessageInterface
 {

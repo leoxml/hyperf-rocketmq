@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library\Traits;
+namespace Leoxml\RocketMQ\Library\Traits;
 
-use Uncleqiu\RocketMQ\Library\Constants;
+use Leoxml\RocketMQ\Library\Constants;
 
 trait MessagePropertiesForConsume
 {
@@ -65,7 +65,7 @@ trait MessagePropertiesForConsume
         if ($this->properties == null) {
             return null;
         }
-        return $this->properties[$key];
+        return $this->properties[$key] ?? null;
     }
 
     /**

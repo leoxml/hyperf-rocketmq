@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Uncleqiu\RocketMQ\Library;
+namespace Leoxml\RocketMQ\Library;
 
 use GuzzleHttp\HandlerStack;
 use Hyperf\Guzzle\CoroutineHandler;

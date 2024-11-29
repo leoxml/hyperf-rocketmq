@@ -1,21 +1,21 @@
 {
-    "name": "uncleqiu/hyperf-rocketmq",
+    "name": "leoxml/hyperf-rocketmq",
     "description": "hyperf rocketmq sdk",
     "keywords": [
         "php",
         "hyperf",
         "rocketmq"
     ],
-    "homepage": "https://github.com/uncleqiu/hyperf-rocketmq.git",
+    "homepage": "https://github.com/leoxml/hyperf-rocketmq.git",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Uncleqiu\\RocketMQ\\": "src/"
+            "Leoxml\\RocketMQ\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "uncleqiu"
+            "name": "leoxml"
         }
     ],
     "require": {
@@ -26,7 +26,7 @@
     },
     "extra": {
         "hyperf": {
-            "config": "Uncleqiu\\RocketMQ\\ConfigProvider"
+            "config": "Leoxml\\RocketMQ\\ConfigProvider"
         }
     }
 }
