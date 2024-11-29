@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Leoxml\RocketMQ;
 
-use Hyperf\Utils\Packer\JsonPacker;
+use Hyperf\Codec\Packer\JsonPacker;
 use Leoxml\RocketMQ\Listener\BeforeMainServerStartListener;
 use Leoxml\RocketMQ\Packer\Packer;
 

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Leoxml\RocketMQ\Library\Exception;
 
-class MQException extends \RuntimeException
+use RuntimeException;
+
+class MQException extends RuntimeException
 {
     private $onsErrorCode;
 

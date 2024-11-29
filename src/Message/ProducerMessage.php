@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Leoxml\RocketMQ\Message;
 
 use Hyperf\Database\Model\Model;
-use Hyperf\Utils\ApplicationContext;
-use Hyperf\Utils\Codec\Json;
+use Hyperf\Context\ApplicationContext;
+use Hyperf\Codec\Json;
 use Leoxml\RocketMQ\Constants\MqConstant;
 use Leoxml\RocketMQ\Exception\RocketMQException;
 use Leoxml\RocketMQ\Model\MqProduceStatusLog;
@@ -106,8 +106,10 @@ class ProducerMessage extends Message implements ProducerMessageInterface
     {
         $this->getStatusLogModel()->insert([
             'status' =>$status,
+            'topic' => $this->getTopic(),
+            'message_tag' => $this->getMessageTag(),
             'message_key' => $this->getMessageKey(),
-            'mq_info' => $this->getProduceInfo(),
+            'payload' => $this->payload(),
         ]);
     }
 
@@ -122,7 +124,7 @@ class ProducerMessage extends Message implements ProducerMessageInterface
         if ($this->saveProduceLog) {
             switch ($this->getLogType()) {
                 case MqConstant::LOG_TYPE_FILE:
-                    $this->getLogger()->info('[消息投递成功]'. $this->getProduceInfo());
+                    $this->getLogger()->info('[投递成功]', $this->getProduceInfo());
                     break;
                 case MqConstant::LOG_TYPE_DB:
                     // 只有记录了消息投递状态，就不操作。因为步骤1已经更新了

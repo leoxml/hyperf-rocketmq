@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Leoxml\RocketMQ\Message;
 
-use Hyperf\Amqp\Exception\MessageException;
 use Hyperf\Logger\LoggerFactory;
-use Hyperf\Utils\ApplicationContext;
+use Hyperf\Context\ApplicationContext;
 use Leoxml\RocketMQ\Constants\MqConstant;
+use Leoxml\RocketMQ\Exception\MessageException;
+use function Hyperf\Config\config;
 
 abstract class Message implements MessageInterface
 {
@@ -54,9 +55,7 @@ abstract class Message implements MessageInterface
 
     public function setTopic(string $topic): self
     {
-//        $this->topic = $this->getEnvExt($topic);
-        $topicExt = config(sprintf('rocketmq.%s.topic_ext', $this->getPoolName()));
-        $this->topic = $topicExt ? $topic . $topicExt : $topic;
+        $this->topic = $this->getEnvExt($topic);
         return $this;
     }
 

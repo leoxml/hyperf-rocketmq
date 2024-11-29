@@ -12,7 +12,6 @@ use Psr\Log\LoggerInterface;
 
 class Builder
 {
-
     protected ?EventDispatcherInterface $eventDispatcher = null;
 
     protected LoggerInterface $logger;

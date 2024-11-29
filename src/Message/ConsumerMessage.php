@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Leoxml\RocketMQ\Message;
 
 use Hyperf\ExceptionHandler\Formatter\FormatterInterface;
-use Hyperf\Utils\ApplicationContext;
-use Hyperf\Utils\Codec\Json;
+use Hyperf\Context\ApplicationContext;
+use Hyperf\Codec\Json;
 use Psr\Container\ContainerInterface;
 use Leoxml\RocketMQ\Constants\MqConstant;
 use Leoxml\RocketMQ\Library\Model\Message as RocketMQMessage;
@@ -183,8 +183,7 @@ class ConsumerMessage extends Message implements ConsumerMessageInterface
         if ($this->getSaveConsumeLog()) {
             switch ($this->getLogType()) {
                 case MqConstant::LOG_TYPE_FILE:
-                    //$this->getLogger()->info('[消息消费成功]', Json::encode($this->getMqInfo($message)));
-                    $this->getLogger()->info('[消息消费成功]', $this->getMqInfo($message));
+                    $this->getLogger()->info('[消费成功]', $this->getMqInfo($message));
                     break;
                 case MqConstant::LOG_TYPE_DB:
                     (new MqConsumeLog())->setConnection($this->getDbConnection())->insert($this->getMqInfo($message));
@@ -207,7 +206,7 @@ class ConsumerMessage extends Message implements ConsumerMessageInterface
 
         switch ($this->getLogType()) {
             case MqConstant::LOG_TYPE_FILE:
-                $this->getLogger()->error('[mq_info] ' . Json::encode($this->getMqInfo($message)) . ' [error_msg] ' . $errInfo);
+                $this->getLogger()->error($errInfo, $this->getMqInfo($message));
                 break;
             case MqConstant::LOG_TYPE_DB:
                 (new MqErrorLog)->setConnection($this->getDbConnection())->insert([

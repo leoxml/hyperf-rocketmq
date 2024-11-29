@@ -7,7 +7,7 @@
 ### 1、安装
 
 ```shell
-composer require uncleqiu/hyperf-rocketmq
+composer require leoxml/hyperf-rocketmq
 ```
 
 ### 2、配置
@@ -15,7 +15,7 @@ composer require uncleqiu/hyperf-rocketmq
 #### 发布配置
 
 ```shell
-php bin/hyperf.php vendor:publish uncleqiu/hyperf-rocketmq
+php bin/hyperf.php vendor:publish leoxml/hyperf-rocketmq
 ```
 
 #### 配置说明
@@ -79,7 +79,7 @@ Producer注解参数
 
 在 DemoProducer 文件中，我们可以修改 `@Producer` 注解对应的字段来替换对应的 `poolName`、`topic`、`messageTag`。就是最终投递到消息队列中的数据，所以我们可以随意改写 `__construct` 方法，只要最后赋值 `payload` 即可。
 
-> 使用 `@Producer` 注解时需 `use Uncleqiu\HyperfRocketMQ\Annotation\Producer;` 命名空间；
+> 使用 `@Producer` 注解时需 `use Leoxml\RocketMQ\Annotation\Producer;` 命名空间；
 
 ```shell
 <?php
@@ -87,8 +87,8 @@ declare(strict_types=1);
 
 namespace App\Test\Queue\Producer;
 
-use Uncleqiu\RocketMQ\Annotation\Producer;
-use Uncleqiu\RocketMQ\Message\ProducerMessage;
+use Leoxml\RocketMQ\Annotation\Producer;
+use Leoxml\RocketMQ\Message\ProducerMessage;
 
 #[Producer(topic:"Topic_03_test", messageTag:"tMsgKey")]
 class DemoProducer extends ProducerMessage
@@ -105,7 +105,7 @@ class DemoProducer extends ProducerMessage
 
 #### 4.2 普通投递方式
 
-通过`Uncleqiu\HyperfRocketMQ\Producer`实例，即可投递消息。
+通过`Leoxml\RocketMQ\Producer`实例，即可投递消息。
 
 ```php
 <?php
@@ -118,7 +118,7 @@ use App\Producer\DemoProducer;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\RequestMapping;
-use Uncleqiu\RocketMQ\Producer;
+use Leoxml\RocketMQ\Producer;
 
 #[Controller]
 class IndexController extends AbstractController
@@ -188,13 +188,13 @@ Consumer注解属性说明
 
 在 DemoConsumer文件中，我们可以修改 `@Consumer` 注解对应的字段来替换对应的 `topic`、`groupId`、`messageTag`。
 
-> 使用 `@Consumer` 注解时需 `use Uncleqiu\HyperfRocketMQ\Annotation\Consumer;` 命名空间；
+> 使用 `@Consumer` 注解时需 `use Leoxml\RocketMQ\Annotation\Consumer;` 命名空间；
 
 ```php
-use Uncleqiu\RocketMQ\Annotation\Consumer;
-use Uncleqiu\RocketMQ\Library\Model\Message as RocketMQMessage;
-use Uncleqiu\RocketMQ\Message\ConsumerMessage;
-use Uncleqiu\RocketMQ\Result;
+use Leoxml\RocketMQ\Annotation\Consumer;
+use Leoxml\RocketMQ\Library\Model\Message as RocketMQMessage;
+use Leoxml\RocketMQ\Message\ConsumerMessage;
+use Leoxml\RocketMQ\Result;
 
 #[Consumer(topic: "Topic_03_test", groupId: "test_test", messageTag: "tMsgKey||tMsgKey_bar")]
 class DemoCounser extends ConsumerMessage
@@ -215,7 +215,7 @@ class DemoCounser extends ConsumerMessage
 
 ### 6、事件说明
 
-> 下面事件都在 `Uncleqiu\HyperfRocketMQ\Event` 命名空间下
+> 下面事件都在 `Leoxml\RocketMQ\Event` 命名空间下
 
 | 事件          | 说明                   |
 | ------------- | ---------------------- |

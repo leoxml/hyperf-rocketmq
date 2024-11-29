@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Leoxml\RocketMQ;
 
-
 use Hyperf\Guzzle\PoolHandler;
-use Hyperf\Utils\Coroutine\Locker;
+use Hyperf\Coroutine\Locker;
 use Leoxml\RocketMQ\Library\MQClient;
 
 class ClientFactory

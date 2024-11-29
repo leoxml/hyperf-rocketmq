@@ -10,6 +10,7 @@ use Hyperf\Process\ProcessManager;
 use Leoxml\RocketMQ\Annotation\Consumer as ConsumerAnnotation;
 use Leoxml\RocketMQ\Message\ConsumerMessageInterface;
 use Psr\Container\ContainerInterface;
+use function Hyperf\Support\make;
 
 class ConsumerManager
 {

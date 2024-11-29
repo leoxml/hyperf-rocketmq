@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Leoxml\RocketMQ\Library\Requests;
 
 use Leoxml\RocketMQ\Library\Constants;
+use XMLWriter;
 
 class AckMessageRequest extends BaseRequest
 {
@@ -47,7 +48,7 @@ class AckMessageRequest extends BaseRequest
 
     public function generateBody()
     {
-        $xmlWriter = new \XMLWriter();
+        $xmlWriter = new XMLWriter();
         $xmlWriter->openMemory();
         $xmlWriter->startDocument('1.0', 'UTF-8');
         $xmlWriter->startElementNS(null, Constants::RECEIPT_HANDLES, Constants::XML_NAMESPACE);

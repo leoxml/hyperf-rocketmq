@@ -8,7 +8,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\Request;
-use Hyperf\Guzzle\PoolHandler;
 use Leoxml\RocketMQ\Library\AsyncCallback;
 use Leoxml\RocketMQ\Library\Config;
 use Leoxml\RocketMQ\Library\Constants;
@@ -65,7 +64,6 @@ class HttpClient
         $this->connectTimeout = $config->getConnectTimeout();
         $this->securityToken = $securityToken;
         $this->endpoint = $endPoint;
-//        $this->agent = "mq-php-sdk/1.0.1(GuzzleHttp/" . \GuzzleHttp\Client::MAJOR_VERSION . " PHP/" . PHP_VERSION . ")";
         $guzzleVersion = Client::MAJOR_VERSION;
         $this->agent = Constants::CLIENT_VERSION . $guzzleVersion . ' PHP/' . PHP_VERSION . ')';
     }
